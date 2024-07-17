@@ -1,6 +1,10 @@
 def calculate_average(numbers):
     total = sum(numbers)
-    return total / len(numbers)
+    try:
+     return total / len(numbers)
+    except ZeroDivisionError:
+        print("No numbers in the list")
+        return 0
 
 def find_max(numbers):
     max_number = numbers[0]
@@ -17,7 +21,9 @@ def get_numbers():
 def main():
     numbers = get_numbers()
     print(f"Average: ", calculate_average(numbers))
-    print("Maximum:", find_max(numbers))
-
+    try:
+        print("Maximum:", find_max(numbers))
+    except IndexError:
+        print("Empty List")
 if __name__ == "__main__":
     main()
